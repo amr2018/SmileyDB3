@@ -229,5 +229,11 @@ tasks.DeleteMany(
 )
 ```
 
-"# SmileDB" 
-# SmileDB
+# Credits
+
+## sqlite3:
+The sqlite3 library is part of the Python Standard Library, which means it is included with Python itself. You can import and use the sqlite3 module directly in your Python code without needing to install any additional
+
+## bcrypt:
+Modern password hashing for your software and your servers
+
