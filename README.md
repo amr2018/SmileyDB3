@@ -15,6 +15,8 @@ To use the SmileDB class, you would typically instantiate an object of the class
 
 ```python
 from SmileDB import SmileDB
+
+
 db = SmileDB("mydatabase.db")
 ```
 
