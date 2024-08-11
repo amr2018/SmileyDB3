@@ -22,7 +22,7 @@ VERSION = '0.3.4'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
-    'bcrypt', 'html'
+    'bcrypt'
     # 'requests', 'maya', 'records',
 ]
 
