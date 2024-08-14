@@ -18,7 +18,7 @@ URL = 'https://github.com/amr2018/SmileyDB3'
 EMAIL = 'amr.ee@yahoo.com'
 AUTHOR = 'Free Python Code'
 REQUIRES_PYTHON = '>=3.1.0'
-VERSION = '0.3.4'
+VERSION = '0.3.6'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
