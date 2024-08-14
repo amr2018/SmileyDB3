@@ -37,12 +37,15 @@ class Table:
         self.types = {
             "<class 'str'>": 'TEXT',
             "<class 'int'>": 'INTEGER',
+            "<class 'float'>": 'REAL',
+            "<class 'bool'>": 'BOOL',
             "<class 'bytes'>": 'BLOB',
+            "<class 'decimal.Decimal'>": 'NUMERIC',
             "INDEX": 'INTEGER PRIMARY KEY'
         }
 
         self.allowed_filters = ['larger_than', 'less_than', 'not', 'equal', 'between']
-
+        
     
     def get_types(self, data):
 
@@ -88,6 +91,8 @@ class Table:
 
         self.cursor.execute(q, tuple([v for v in data.values()]))
         self.db.commit()
+
+        
 
         return self.GetBy(**data)
     
@@ -330,3 +335,5 @@ class SmileyDB3:
     def table(self, table_name, make_uuid = True, created_at = True) -> Table:
         return Table(table_name, self.conn, self.cursor, make_uuid, created_at)
     
+
+
