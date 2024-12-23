@@ -327,9 +327,9 @@ class Table:
 
 
 class SmileyDB3:
-    def __init__(self, database):
+    def __init__(self, database, **args):
         self.database = database
-        self.conn = sqlite3.connect(self.database)
+        self.conn = sqlite3.connect(self.database, **args)
         self.cursor = self.conn.cursor()
 
     def table(self, table_name, make_uuid = True, created_at = True) -> Table:
