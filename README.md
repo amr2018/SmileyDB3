@@ -26,7 +26,54 @@ my_table = db.table("my_table")
 
 The `table()` method returns a Table object (my_table in this example) that can be used to perform operations on the created table.
 
+# New Functions
 
+## Generate like this 
+
+### Install faker
+``` 
+pip install faker
+```
+```python
+db = SmileyDB3('mydb.db')
+tasks = db.table('tasks')
+
+from faker import Faker
+
+tasks_list = tasks.GenerateLikeThis(
+    schema={'name': '', 'reword': 100},
+    faker = Faker(),
+    n = 20
+)
+
+tasks.InsertMany(data_list=tasks_list)
+```
+
+
+## Slice
+```python
+tasks_list = tasks.Slice(0, 5)
+print(tasks_list)
+
+```
+
+## Result
+```
+[{'_index': 1, 'name': 'William Macias', 'reword': 41, 'uuid': '8ea20e95-c0f4-4b2d-95b3-ade89b18d6d1', 'created_at': '2025-01-20 08:39:31.684338'}, {'_index': 2, 'name': 'George Martinez', 'reword': 93, 'uuid': '39853737-3fd5-4ab8-abae-1180dc27f7a3', 'created_at': '2025-01-20 08:39:31.888855'}, {'_index': 3, 'name': 'Ashley Smith', 'reword': 33, 'uuid': 'd194c712-e7ca-44d1-9127-fd5e19a5d844', 'created_at': '2025-01-20 08:39:31.970459'}, {'_index': 4, 'name': 'Tricia Stewart', 'reword': 43, 'uuid': '4a5b2cde-bde9-4ccb-a40c-ca5bf3e40303', 'created_at': '2025-01-20 08:39:32.056114'}, {'_index': 5, 'name': 'Luke Wall', 'reword': 79, 'uuid': 'f89dec3f-71c5-44ee-ae86-58f9b76df7bb', 'created_at': '2025-01-20 08:39:32.148086'}]
+```
+
+## Limit
+```python
+tasks_list = tasks.Limit(5)
+print(tasks_list)
+```
+
+## Result
+```
+[{'_index': 1, 'name': 'William Macias', 'reword': 41, 'uuid': '8ea20e95-c0f4-4b2d-95b3-ade89b18d6d1', 'created_at': '2025-01-20 08:39:31.684338'}, {'_index': 2, 'name': 'George Martinez', 'reword': 93, 'uuid': '39853737-3fd5-4ab8-abae-1180dc27f7a3', 'created_at': '2025-01-20 08:39:31.888855'}, {'_index': 3, 'name': 'Ashley Smith', 'reword': 33, 'uuid': 'd194c712-e7ca-44d1-9127-fd5e19a5d844', 'created_at': '2025-01-20 08:39:31.970459'}, {'_index': 4, 'name': 'Tricia Stewart', 'reword': 43, 'uuid': '4a5b2cde-bde9-4ccb-a40c-ca5bf3e40303', 'created_at': '2025-01-20 08:39:32.056114'}, {'_index': 5, 'name': 'Luke Wall', 'reword': 79, 'uuid': 'f89dec3f-71c5-44ee-ae86-58f9b76df7bb', 'created_at': '2025-01-20 08:39:32.148086'}]
+```
+
+-----------------------------------------------------
 
 ## Insert or add new record
 
@@ -145,7 +192,7 @@ print(tasks.FindOne(workers = 80))
 
 ## Filtring records by any column
 
-use `larger_than`, `less_than`, `not`, `equal`, `between`
+use `larger_than`, `less_than`, `not`, `equal`, `between`, `less_or_equal`, `larger_or_equal `
 
 ### example of how to use `less_than` filter
 
